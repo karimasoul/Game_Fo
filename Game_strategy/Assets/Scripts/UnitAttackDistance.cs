@@ -54,6 +54,7 @@ public class UnitAttackDistance : MonoBehaviour
             if(obj != null)
             {
                 list.Add (obj.transform);
+                //ligne for debug
                 GameManager.Instance.RegisterEnemy();
             }
         }
@@ -156,7 +157,7 @@ public class UnitAttackDistance : MonoBehaviour
                 Vector2 currentPos = transform.position;
                 Vector2 targetPos = nextNode.worldPos;
 
-                // Déplacement uniquement horizontal ou vertical
+                // Dï¿½placement uniquement horizontal ou vertical
                 Vector2 moveStep = currentPos;
 
                 if (Mathf.Abs(targetPos.x - currentPos.x) > Mathf.Abs(targetPos.y - currentPos.y))
@@ -228,7 +229,7 @@ public class UnitAttackDistance : MonoBehaviour
                 break;
         }
 
-        return target; // fallback si rien n’est walkable
+        return target; // fallback si rien nï¿½est walkable
     }
     //a supp
     void ComputePathTo(Transform target)

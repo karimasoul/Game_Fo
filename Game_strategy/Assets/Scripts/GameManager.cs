@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         transform.position = new Vector3(28.00f, 14.21f, 2.93f);
         if (prefabToSpawn != null)
         {
-            GameObject newUnit = Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
+           // GameObject newUnit = Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
         }
 
         //rajoute remp
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
-        if (gameOverImage.activeSelf) return; // jeu stoppé
+        if (gameOverImage.activeSelf) return; // jeu stoppï¿½
 
         currentTime -= Time.deltaTime;
         timerText.text = "Temps : " + Mathf.Ceil(currentTime).ToString();

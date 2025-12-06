@@ -10,7 +10,10 @@ public class Health : MonoBehaviour
     void Start()
     {
         if(gameObject.name.StartsWith("ok"))
+        {
             isEnemy = true;
+            GameManager.Instance.RegisterEnemy();
+        }
 
         //if (gameObject.name.StartsWith("cry"))
           //  remp = true;
@@ -20,7 +23,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHP -= amount;
-        Debug.Log(name + " a pris " + amount + " dégâts. HP restants: " + currentHP);
+        Debug.Log(name + " a pris " + amount + " dï¿½gï¿½ts. HP restants: " + currentHP);
 
         if (currentHP <= 0)
         {
@@ -30,7 +33,7 @@ public class Health : MonoBehaviour
 
     void Die()
     {
-        Debug.Log(name + " est détruit !");
+        Debug.Log(name + " est dï¿½truit !");
         Destroy(gameObject);
         if (isEnemy)
         {
