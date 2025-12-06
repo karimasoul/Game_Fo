@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
     public int damage = 10;
 
     private Transform target;
+    private bool hasHit = false;
 
     public void SetTarget(Transform t)
     {
@@ -16,35 +17,26 @@ public class Projectile : MonoBehaviour
     {
         if (target == null)
         {
-            
             Destroy(gameObject);
-            GridManager.Instance.SetNodeWalkable(gameObject.transform.position, true);
-            
-            return; //à remetre?
+            GridManager.Instance.SetNodeWalkable(transform.position, true);
+            return;
         }
 
-        // Mouvement vers la cible
+        // Déplacement
         transform.position = Vector2.MoveTowards(
             transform.position,
             target.position,
             speed * Time.deltaTime
         );
 
-        // Collision (distance très faible)
-        if (Vector2.Distance(transform.position, target.position) < 0.1f)
+        // Collision
+        if (!hasHit && Vector2.Distance(transform.position, target.position) < 0.1f)
         {
+            hasHit = true;  
             target.GetComponent<Health>()?.TakeDamage(damage);
-            if (target == null)
-            {
-                // GameManager.Instance.EnemyKilled();
-                Destroy(gameObject);
-                GridManager.Instance.SetNodeWalkable(gameObject.transform.position, true);
-            }
-            //if (target != null && target.childCount > 0)
-            //{
-                //Transform closest = GetClosestTarget();
-            //}
-          
+
+            Destroy(gameObject);
+            GridManager.Instance.SetNodeWalkable(transform.position, true);
         }
     }
 }
