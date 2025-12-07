@@ -82,7 +82,7 @@ public class EnemyAttack : MonoBehaviour
             Node end = GridManager.Instance.WorldToNode(target.position);
 
         
-        path = Pathfinder.Instance.Dijkstra(start, end);
+        path = AStarPathfinder.Instance.FindPath(start, end);
         if (path == null)
         {
             Debug.Log("A n a pas trouve");
