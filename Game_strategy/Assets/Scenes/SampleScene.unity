@@ -4610,6 +4610,7 @@ MonoBehaviour:
   scoreText: {fileID: 1604010279}
   timerText: {fileID: 935955665}
   gameOverImage: {fileID: 154104636}
+  victoryImage: {fileID: 543897503}
   explication: {fileID: 1143449982}
   maxTime: 60
 --- !u!1001 &1207958058
