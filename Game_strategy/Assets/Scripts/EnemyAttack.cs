@@ -81,14 +81,20 @@ public class EnemyAttack : MonoBehaviour
             Node start = GridManager.Instance.WorldToNode(transform.position);
             Node end = GridManager.Instance.WorldToNode(target.position);
 
-        
+        float startTime = Time.realtimeSinceStartup;
+
         path = AStarPathfinder.Instance.FindPath(start, end);
+
+        float endTime = Time.realtimeSinceStartup;
+        float elapsed = endTime - startTime;
+
         if (path == null)
         {
             Debug.Log("A n a pas trouve");
             return;
         }
             index = 0;
+            Debug.Log($"ENEMY: Chemin trouvé avec Astar en {elapsed:F4} secondes, {path.Count} nodes");
         }
 
         

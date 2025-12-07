@@ -220,9 +220,16 @@ public class UnitAttackDistance : MonoBehaviour
         Node end = GridManager.Instance.WorldToNode(target.position);
 
        
-
+        float startTime = Time.realtimeSinceStartup;
+        
         currentPath = Pathfinder.Instance.Dijkstra(start, end);
+
+        float endTime = Time.realtimeSinceStartup;
+        float elapsed = endTime - startTime;
+
         pathIndex = 0;
+
+        Debug.Log($"ALLIE: Chemin trouvé avec Dijikstra en {elapsed:F4} secondes, {currentPath.Count} nodes");
     }
 
     Transform GetClosestTarget()
