@@ -55,7 +55,7 @@ public class UnitAttackDistance : MonoBehaviour
             {
                 list.Add (obj.transform);
                 //ligne for debug
-                GameManager.Instance.RegisterEnemy();
+                //GameManager.Instance.RegisterEnemy();
             }
         }
 
