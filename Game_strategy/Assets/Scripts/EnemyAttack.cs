@@ -52,7 +52,7 @@ public class EnemyAttack : MonoBehaviour
             Invoke(nameof(Attack), 2f);
             Invoke(nameof(ResetAttack), attackCooldown);
             return;
-            // Attack();
+           
         }
         if (dist > attackRange)
         {
@@ -81,7 +81,7 @@ public class EnemyAttack : MonoBehaviour
             Node start = GridManager.Instance.WorldToNode(transform.position);
             Node end = GridManager.Instance.WorldToNode(target.position);
 
-        //path = AStarPathfinder.Instance.FindPath(start, end);
+        
         path = Pathfinder.Instance.Dijkstra(start, end);
         if (path == null)
         {
@@ -99,7 +99,7 @@ public class EnemyAttack : MonoBehaviour
         AllyHealth allyHealth = target.GetComponent<AllyHealth>();
         if (allyHealth != null)
         {
-           //new WaitForSeconds(2f);
+           
             allyHealth.TakeDamage(damage);
         }
 

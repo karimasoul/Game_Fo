@@ -5,7 +5,7 @@ public class Health : MonoBehaviour
     public int maxHP = 50;
     private int currentHP;
     public bool isEnemy = false;
-    //public bool remp = false;
+    
 
     void Start()
     {
@@ -15,15 +15,13 @@ public class Health : MonoBehaviour
             GameManager.Instance.RegisterEnemy();
         }
 
-        //if (gameObject.name.StartsWith("cry"))
-          //  remp = true;
         currentHP = maxHP;
     }
 
     public void TakeDamage(int amount)
     {
         currentHP -= amount;
-        Debug.Log(name + " a pris " + amount + " d�g�ts. HP restants: " + currentHP);
+        Debug.Log(name + " a pris " + amount + " degats. HP restants: " + currentHP);
 
         if (currentHP <= 0)
         {
@@ -33,17 +31,13 @@ public class Health : MonoBehaviour
 
     void Die()
     {
-        Debug.Log(name + " est d�truit !");
+        Debug.Log(name + " est detruit !");
         Destroy(gameObject);
         if (isEnemy)
         {
-            GameManager.Instance.EnemyKilled(); // a voir
+            GameManager.Instance.EnemyKilled();
 
-           // if (remp)
-            //{
-
-              //  GridManager.Instance.SetNodeWalkable(gameObject.transform.position, true);
-            //}
+           
         }
     }
 }

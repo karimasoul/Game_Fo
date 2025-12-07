@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour
             return;
         }
 
-        // Déplacement
+        // Deplacement
         transform.position = Vector2.MoveTowards(
             transform.position,
             target.position,

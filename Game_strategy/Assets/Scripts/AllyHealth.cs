@@ -18,11 +18,11 @@ public class AllyHealth : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
-        Debug.Log("Allié touché ! HP restant : " + currentHealth);
+        Debug.Log("Allie touche ! HP restant : " + currentHealth);
 
         if (currentHealth <= 0)
         {
-            Debug.Log("Allié mort !");
+            Debug.Log("Allie mort !");
             Destroy(gameObject);
             if (gameOverImage != null)
                 gameOverImage.SetActive(true);

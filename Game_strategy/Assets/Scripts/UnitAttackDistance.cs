@@ -28,7 +28,6 @@ public class UnitAttackDistance : MonoBehaviour
 
     private void Start()
     {
-        //SnapToClosesNode();
         Invoke(nameof(SnapToClosesNode), 0.05f);
         GameObject[] allObjects = Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None);
         List<Transform> list = new List<Transform>();
@@ -54,8 +53,6 @@ public class UnitAttackDistance : MonoBehaviour
             if(obj != null)
             {
                 list.Add (obj.transform);
-                //ligne for debug
-                //GameManager.Instance.RegisterEnemy();
             }
         }
 
@@ -80,8 +77,6 @@ public class UnitAttackDistance : MonoBehaviour
         Transform closest = GetClosestTarget();
         if (closest == null) return;
 
-        //
-        //Vector2 dir = (closest.position - transform.position).normalized;
         Vector2 dir = (closest.position - transform.position).normalized;
         RaycastHit2D hit = Physics2D.Raycast(
             transform.position,
@@ -151,47 +146,34 @@ public class UnitAttackDistance : MonoBehaviour
                         StartCoroutine(Shoot(rempart.transform));
                     }
                     return;
-                  //  ComputePathTo(GetClosestTarget());
-                    //return;
+
                 }
                 Vector2 currentPos = transform.position;
                 Vector2 targetPos = nextNode.worldPos;
 
-                // D�placement uniquement horizontal ou vertical
+               
                 Vector2 moveStep = currentPos;
 
                 if (Mathf.Abs(targetPos.x - currentPos.x) > Mathf.Abs(targetPos.y - currentPos.y))
                 {
-                    // Avance horizontalement seulement
-                    //transform.position = new Vector2(
-                      //  Mathf.MoveTowards(currentPos.x, targetPos.x, moveSpeed * Time.deltaTime),currentPos.y
-                    //    );
+                    
                     moveStep.x = Mathf.MoveTowards(currentPos.x, targetPos.x, moveSpeed * Time.deltaTime);
                 }
                 else
                 {
-                    // Avance verticalement seulement
-                    //transform.position = new Vector2(
-                       // transform.position.x,
-                      //  Mathf.MoveTowards(currentPos.y, targetPos.y, moveSpeed * Time.deltaTime)
-                    //    );
                     moveStep.y = Mathf.MoveTowards(currentPos.y, targetPos.y, moveSpeed * Time.deltaTime);
                 }
 
                 transform.position = moveStep;
 
-                // Passe au node suivant si atteint
+                
                 if (Vector2.Distance(transform.position, targetPos) < 0.1f)
                     pathIndex++;
 
                 return; 
             }
             
-            //transform.position = Vector3.MoveTowards(
-              //  transform.position,
-               // closest.position,
-               // moveSpeed * Time.deltaTime
-            //);
+           
         }
         else
         {
@@ -229,7 +211,7 @@ public class UnitAttackDistance : MonoBehaviour
                 break;
         }
 
-        return target; // fallback si rien n�est walkable
+        return target; 
     }
     //a supp
     void ComputePathTo(Transform target)
@@ -237,9 +219,7 @@ public class UnitAttackDistance : MonoBehaviour
         Node start = GridManager.Instance.WorldToNode(transform.position);
         Node end = GridManager.Instance.WorldToNode(target.position);
 
-        //a supp
-        //end = FindClosestWalkableToTarget(end);
-        // a supp
+       
 
         currentPath = Pathfinder.Instance.Dijkstra(start, end);
         pathIndex = 0;

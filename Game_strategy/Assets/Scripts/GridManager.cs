@@ -66,12 +66,12 @@ public class GridManager : MonoBehaviour
 
                 if (node == null) continue;
 
-                // Choix de la couleur selon walkable ou pas
+                // color
                 Gizmos.color = node.walkable ? Color.green : Color.red;
 
-                // Dessine un petit cube à la position du node
+
                 Gizmos.DrawWireCube(node.worldPos, Vector3.one * (cellSize ));
-                //* 0.9f
+                
             }
         }
     }

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timerText;
     public GameObject gameOverImage;
+    public GameObject victoryImage;
     public GameObject explication;
 
     [Header("Timer")]
@@ -30,23 +31,14 @@ public class GameManager : MonoBehaviour
         explication.SetActive(true);
         Invoke(nameof(Hide), 2f);
 
-       // yield return new WaitForSeconds(2f);
-        
-
-        //transform.position = faudrai que je precise une position
-        transform.position = new Vector3(28.00f, 14.21f, 2.93f);
+       
+        //transform.position = new Vector3(28.00f, 14.21f, 2.93f);
         if (prefabToSpawn != null)
         {
+            //debug
            // GameObject newUnit = Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
         }
 
-        //rajoute remp
-        //transform.position = new Vector3(28.07f, 14.95f, 2.93f);
-        //if (rempToSpawn != null)
-        //{
-          //  GameObject newUnit = Instantiate(rempToSpawn, transform.position, Quaternion.identity);
-        //}
-        //
 
         currentTime = maxTime;
         UpdateScoreUI();
@@ -55,7 +47,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
-        if (gameOverImage.activeSelf) return; // jeu stopp�
+        if (gameOverImage.activeSelf) return; 
+        if (victoryImage.activeSelf) return;// end
 
         currentTime -= Time.deltaTime;
         timerText.text = "Temps : " + Mathf.Ceil(currentTime).ToString();
@@ -81,7 +74,7 @@ public class GameManager : MonoBehaviour
         killedEnemies++;
         UpdateScoreUI();
 
-        if (killedEnemies >= totalEnemies)
+        if (killedEnemies == totalEnemies)
         {
             Victory();
         }
@@ -100,8 +93,7 @@ public class GameManager : MonoBehaviour
 
     private void Victory()
     {
-        //gameOverImage.SetActive(true); mettre un canva de victory plutot 
-        //gameOverImage.GetComponentInChildren<TextMeshProUGUI>().text = "VICTOIRE !";
+        victoryImage.SetActive(true); 
         Time.timeScale = 0f;
     }
 }

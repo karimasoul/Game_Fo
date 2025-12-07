@@ -36,7 +36,7 @@ public class Pathfinder : MonoBehaviour
                 if (!neigh.walkable) continue;
 
                 float alt = dist[current] + Vector2.Distance(current.worldPos, neigh.worldPos);
-                //float alt = dist[current] + 1f;
+                
 
                 if (alt < dist[neigh])
                 {
@@ -74,33 +74,10 @@ public class Pathfinder : MonoBehaviour
         }
 
 
-        //bool up = y + 1 < GridManager.Instance.height && grid[x, y + 1].walkable;
-        //bool down = y - 1 >= 0 && grid[x, y - 1].walkable;
-        //bool right = x + 1 < GridManager.Instance.width && grid[x + 1, y].walkable;
-        //bool left = x - 1 >= 0 && grid[x - 1, y].walkable;
-
-        //if (right) TryAdd(x + 1, y);
-        //if (left) TryAdd(x - 1, y);
-        //if (up) TryAdd(x, y + 1);
-        //if (down) TryAdd(x, y - 1);
-
-        
-        //if (up && right) TryAdd(x + 1, y + 1);
-        //if (up && left) TryAdd(x - 1, y + 1);
-        //if (down && right) TryAdd(x + 1, y - 1);
-        //if (down && left) TryAdd(x - 1, y - 1);
-
-        //return list;
-
         TryAdd(x + 1, y);
         TryAdd(x - 1, y);
         TryAdd(x, y + 1);
         TryAdd(x, y - 1);
-
-        //TryAdd(x + 1, y + 1);
-        //TryAdd(x - 1, y + 1);
-        //TryAdd(x + 1, y - 1);
-        //TryAdd(x - 1, y - 1);
         return list;
     }
 }
