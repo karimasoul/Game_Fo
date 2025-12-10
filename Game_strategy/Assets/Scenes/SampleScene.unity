@@ -1564,7 +1564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a88721f3ff9e824cbd425a2794761e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHP: 40
+  maxHP: 120
   isEnemy: 0
 --- !u!1 &493299624
 GameObject:
@@ -2261,7 +2261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a88721f3ff9e824cbd425a2794761e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHP: 50
+  maxHP: 200
   isEnemy: 0
 --- !u!1 &594003639
 GameObject:
@@ -6146,7 +6146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a88721f3ff9e824cbd425a2794761e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHP: 50
+  maxHP: 300
   isEnemy: 0
 --- !u!1 &1589682999
 GameObject:
