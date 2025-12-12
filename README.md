@@ -16,3 +16,7 @@ Technologies utilisées:
 - Dijkstra Pathfinding
 
 - Architecture basée sur une grille (Grid-based)
+
+# License
+Ce plugin est sous licence MIT. Consultez le fichier [LICENSE](LICENSE) pour plus de détails.
+
